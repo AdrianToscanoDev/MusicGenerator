@@ -1,16 +1,26 @@
-from UsefulFunctions import clearScreen, addNewLine, getChoiceFrom
+from UsefulFunctions import addNewLine, clearScreen, getChoiceFrom
 
 
-def homeScreen():
+def viewPlaylistScreen():
+    # check if playlist is empty
+    showEmptyPlaylistScreen()
+
+    # if playlist is empty, show empty screen
+
+    # if playlist is not empty , display playlist
+
+    # get choice
+
+
+def showEmptyPlaylistScreen():
     addNewLine(40)
     clearScreen()
     print("------------------------------- HOME -------------------------------")
     print("|                                                                   |\n"
-          "|\tWhat would you like to do?                                      |\n"
+          "|\t\t Your playlist is currently empty!                            |\n"
           "|\t                                                                |\n"
-          "|\ta) View Playlist                                                |\n"
+          "|\ta) Go to Home                                                |\n"
           "|\tb) Add Songs                                                    |\n"
-          "|\tc) Quick Fill Playlist                                          |\n"
           "|\tq) Quit Program                                                 |\n"
           "|                                                                   |\n"
           "---------------------------------------------------------------------\n")
@@ -18,9 +28,8 @@ def homeScreen():
     # get choice
     user_choice = input("Enter choice here: ")
     go_to_screen = getChoiceFrom(user_choice,
-                                 "View Playlist",
+                                 "Home",
                                  "Add Songs",
-                                 "Quick Fill Playlist",
                                  "Quit")
 
     return go_to_screen

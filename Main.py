@@ -5,7 +5,7 @@ from Welcome import welcomeScreen
 
 def main():
 
-    # display awelcome screen
+    # display a welcome screen
     user_choice = welcomeScreen()
 
     # main program loop
@@ -24,7 +24,6 @@ def main():
             print("Home")
         elif go_to_screen == "Quit":
             print("Quit")
-
 
     # end program
     addNewLine(40)
