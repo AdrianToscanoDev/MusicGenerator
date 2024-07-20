@@ -16,6 +16,7 @@ def homeScreen():
           "---------------------------------------------------------------------\n")
 
     # get choice
+    #TODO: validate input
     user_choice = input("Enter choice here: ")
     go_to_screen = getChoiceFrom(user_choice,
                                  "View Playlist",

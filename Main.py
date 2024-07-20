@@ -1,4 +1,4 @@
-from UsefulFunctions import clearScreen, addNewLine
+from UsefulFunctions import clearScreen, addNewLine, getChoiceFrom
 from Home import homeScreen
 from Welcome import welcomeScreen
 
@@ -11,9 +11,10 @@ def main():
     # main program loop
     while user_choice != 'q':
 
+        # default to home screen
         go_to_screen = homeScreen()
 
-        # decide which screen to go to
+        # decide which screen to go to from the home screen
         if go_to_screen == "View Playlist":
             print("View Playlist")
         elif go_to_screen == "Add Songs":

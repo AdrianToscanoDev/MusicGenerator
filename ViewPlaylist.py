@@ -2,12 +2,14 @@ from UsefulFunctions import addNewLine, clearScreen, getChoiceFrom
 
 
 def viewPlaylistScreen():
-    # check if playlist is empty
-    showEmptyPlaylistScreen()
+    # TODO: check if playlist is empty
+    isEmptyPlaylist()
 
     # if playlist is empty, show empty screen
+    showEmptyPlaylistScreen()
 
     # if playlist is not empty , display playlist
+
 
     # get choice
 
@@ -15,7 +17,7 @@ def viewPlaylistScreen():
 def showEmptyPlaylistScreen():
     addNewLine(40)
     clearScreen()
-    print("------------------------------- HOME -------------------------------")
+    print("------------------------------- Your Playlist -------------------------------")
     print("|                                                                   |\n"
           "|\t\t Your playlist is currently empty!                            |\n"
           "|\t                                                                |\n"
@@ -26,6 +28,7 @@ def showEmptyPlaylistScreen():
           "---------------------------------------------------------------------\n")
 
     # get choice
+    # TODO: validate input
     user_choice = input("Enter choice here: ")
     go_to_screen = getChoiceFrom(user_choice,
                                  "Home",
@@ -33,3 +36,6 @@ def showEmptyPlaylistScreen():
                                  "Quit")
 
     return go_to_screen
+
+def isEmptyPlaylist():
+    return True

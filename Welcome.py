@@ -33,5 +33,6 @@ def welcomeScreen():
           "|                                                                   |\n"
           "---------------------------------------------------------------------\n")
     # get choice
+    # TODO: validate input
     user_choice = input("Enter choice here: ")
     return user_choice
