@@ -1,35 +1,45 @@
-from UsefulFunctions import clearScreen, addNewLine, getChoiceFrom
+from UsefulFunctions import getInputFrom
 from Home import homeScreen
 from Welcome import welcomeScreen
-
+from ViewPlaylist import viewPlaylistScreen
+from AddSongs import addSongsScreen, addSongsSuccess
+from QuickFillPlaylist import quickFillPlaylistScreen
+from Quit import quitScreen
 
 def main():
 
     # display a welcome screen
-    user_choice = welcomeScreen()
+    welcomeScreen()
+
+    # display home screen
+    homeScreen()
+    user_choice = getInputFrom("HomeScreen")
 
     # main program loop
-    while user_choice != 'q':
+    while user_choice != "Quit":
 
-        # default to home screen
-        go_to_screen = homeScreen()
+        if user_choice == "Home":
+            homeScreen()
+            user_choice = getInputFrom("HomeScreen")
 
-        # decide which screen to go to from the home screen
-        if go_to_screen == "View Playlist":
-            print("View Playlist")
-        elif go_to_screen == "Add Songs":
-            print("Add Songs")
-        elif go_to_screen == "Quick Fill Playlist":
-            print("Quick Fill Playlist")
-        elif go_to_screen == "Home":
-            print("Home")
-        elif go_to_screen == "Quit":
-            print("Quit")
+        elif user_choice == "View Playlist":
+            viewPlaylistScreen()
+            user_choice = getInputFrom("ViewPlaylistScreen")
+
+        elif user_choice == "Add Songs":
+            addSongsScreen()
+            user_choice = getInputFrom("AddSongsScreen")
+
+        elif user_choice == "Add 5 songs" or user_choice == "Add 10 songs":
+            addSongsSuccess()
+            user_choice = getInputFrom("AddSongsSuccess")
+
+        elif user_choice == "Quick Fill Playlist":
+            quickFillPlaylistScreen()
+            user_choice = getInputFrom("QuickFillPlaylistScreen")
 
     # end program
-    addNewLine(40)
-    print("Thanks for using the app!\n")
-
+    quitScreen()
 
 if __name__ == "__main__":
     main()

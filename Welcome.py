@@ -1,15 +1,5 @@
 from UsefulFunctions import clearScreen
 
-"""
-Name: WelcomeScreen
-
-This function displays a welcome screen to the user. 
-
-returns:    a to continue to the login page 
-            b to quit the program
-"""
-
-
 def welcomeScreen():
     clearScreen()
 
@@ -27,12 +17,8 @@ def welcomeScreen():
           "|\tof 50 songs. Songs can only be added 5 or 10                    |\n"
           "|\tat a time)                                                      |\n"
           "|                                                                   |\n"
-          "|\tEnter a or b to continue                                        |\n"
-          "|\ta) Continue to Home                                             |\n"
-          "|\tq) Quit Program                                                 |\n"
+          "|\tPress the enter key to continue                                  |\n"
           "|                                                                   |\n"
           "---------------------------------------------------------------------\n")
-    # get choice
-    # TODO: validate input
-    user_choice = input("Enter choice here: ")
-    return user_choice
+    input()
+
