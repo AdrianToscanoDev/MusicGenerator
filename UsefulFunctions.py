@@ -8,6 +8,45 @@ def addNewLine(amount):
         print()
 
 """
+Gets input from the user. screen parameter is used to decide from which set of options to choose from 
+"""
+def getInputFrom(screen):
+
+    global go_to_screen
+
+    user_input = input("Enter choice here: \n")
+
+    if screen == "HomeScreen":
+        go_to_screen = getChoiceFrom(user_input,
+                                     "View Playlist",
+                                     "Add Songs",
+                                     "Quick Fill Playlist",
+                                     "Quit")
+    elif screen == "ViewPlaylistScreen":
+        go_to_screen = getChoiceFrom(user_input,
+                                     "Home",
+                                     "Add Songs",
+                                     "Quit")
+    elif screen == "AddSongsScreen":
+        go_to_screen = getChoiceFrom(user_input,
+                                     "Add5",
+                                     "Add10",
+                                     "Home",
+                                     "Quit")
+    elif screen == "QuickFillPlaylistScreen":
+        go_to_screen = getChoiceFrom(user_input,
+                                     "Home",
+                                     "Quit")
+
+    elif screen == "AddSongsSuccess":
+        go_to_screen = getChoiceFrom(user_input,
+                                     "Home",
+                                     "View Playlist",
+                                     "Quit")
+
+    return go_to_screen
+
+"""
 name: getChoiceFrom
 
 This function accepts the users choice, and then the options of the current screen, in order. 
@@ -27,12 +66,3 @@ def getChoiceFrom(userChoice, optionA = "none", optionB = "none", optionC = "non
         return optionC
     elif userChoice == 'd':
         return optionD
-
-
-"""
-a) View Playlist
-b) Add songs
-c) Quick fill playlist
-d) Go back to home
-q) Quit program
-"""

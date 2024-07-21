@@ -1,6 +1,4 @@
-from UsefulFunctions import clearScreen, addNewLine, getChoiceFrom
-
-
+from UsefulFunctions import clearScreen, addNewLine
 def homeScreen():
     addNewLine(40)
     clearScreen()
@@ -14,14 +12,3 @@ def homeScreen():
           "|\tq) Quit Program                                                 |\n"
           "|                                                                   |\n"
           "---------------------------------------------------------------------\n")
-
-    # get choice
-    #TODO: validate input
-    user_choice = input("Enter choice here: ")
-    go_to_screen = getChoiceFrom(user_choice,
-                                 "View Playlist",
-                                 "Add Songs",
-                                 "Quick Fill Playlist",
-                                 "Quit")
-
-    return go_to_screen
