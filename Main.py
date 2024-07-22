@@ -4,7 +4,7 @@ from Welcome import welcomeScreen
 from ViewPlaylist import viewPlaylistScreen
 from AddSongs import addSongsScreen, addSongsSuccess
 from QuickFillPlaylist import quickFillPlaylistScreen
-from Quit import quitScreen
+from Quit import quitScreen, errorScreen
 
 def main():
 
@@ -37,6 +37,10 @@ def main():
         elif user_choice == "Quick Fill Playlist":
             quickFillPlaylistScreen()
             user_choice = getInputFrom("QuickFillPlaylistScreen")
+
+        else:
+            errorScreen()
+            user_choice = "Quit"
 
     # end program
     quitScreen()

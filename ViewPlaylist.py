@@ -8,6 +8,7 @@ def viewPlaylistScreen():
     with open('playlist.txt', 'r') as file:
         contents = file.read()
         print(contents)
+    file.close()
 
     # display options
     addNewLine(2)
