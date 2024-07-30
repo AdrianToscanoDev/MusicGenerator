@@ -1,6 +1,14 @@
 import os
 
 """
+function is called at the beginning of the program to clear the contents of the playlist
+"""
+def clearPlaylist():
+    # open file and write empty message
+    with open("playlist.txt", 'w') as playlistFile:
+        playlistFile.write("Your playlist is currently empty!")
+
+"""
 function is used to help format the terminal window
 """
 def clearScreen():
@@ -21,12 +29,13 @@ rangeMax is the high end of the range of options.
 for example: passing 'c' for rangeMax means that 
 input should not be higher in the alphabet than 'c' (aka not d or more)
 """
-def validateInput(userInput, rangeMax):
+def inputIsValid(userInput, rangeMax):
 
     # make sure input is 1 single char
     userInputLength = len(userInput)
     if userInputLength != 1:
-        print("Invalid input! Please enter from one of the options available.")
+        # print("Invalid input! Please enter from one of the options available.")
+        return False
 
     # make sure input is within the range from [a, rangeMax]
     a_in_ascii = 61
@@ -34,7 +43,10 @@ def validateInput(userInput, rangeMax):
     userInput_in_ascii = ord(userInput)
 
     if userInput_in_ascii < a_in_ascii or userInput_in_ascii > rangeMax_in_ascii:
-        print("Invalid input! Please choose an option from a to ", rangeMax, "\n")
+        #print("Invalid input! Please choose an option from a to ", rangeMax, "\n")
+        return False
+    else:
+        return True
 
 """
 Gets input from the user. screen parameter is used to decide from which set of options to choose from 
@@ -51,29 +63,78 @@ def getInputFrom(screen):
                                      "Add Songs",
                                      "Quick Fill Playlist",
                                      "Quit")
+        # validate input
+        if inputIsValid(user_input, 'd') is not True:
+            badInputScreen()
+            go_to_screen = "Home"
+
     elif screen == "ViewPlaylistScreen":
         go_to_screen = getChoiceFrom(user_input,
                                      "Home",
                                      "Add Songs",
                                      "Quit")
+
+        # validate input
+        if inputIsValid(user_input, 'c') is not True:
+            badInputScreen()
+            go_to_screen = "Home"
+
     elif screen == "AddSongsScreen":
         go_to_screen = getChoiceFrom(user_input,
-                                     "Add5",
-                                     "Add10",
+                                     "Add 5 songs",
+                                     "Add 10 songs",
                                      "Home",
                                      "Quit")
+        # validate input
+        if inputIsValid(user_input, 'd') is not True:
+            badInputScreen()
+            go_to_screen = "Home"
+
     elif screen == "QuickFillPlaylistScreen":
         go_to_screen = getChoiceFrom(user_input,
                                      "Home",
                                      "Quit")
+        # validate input
+        if inputIsValid(user_input, 'b') is not True:
+            badInputScreen()
+            go_to_screen = "Home"
 
     elif screen == "AddSongsSuccess":
         go_to_screen = getChoiceFrom(user_input,
                                      "Home",
                                      "View Playlist",
                                      "Quit")
+        # validate input
+        if inputIsValid(user_input, 'c') is not True:
+            badInputScreen()
+            go_to_screen = "Home"
+
+    elif screen == "PlaylistFullMessage":
+        go_to_screen = getChoiceFrom(user_input,
+                                     "Home",
+                                     "View Playlist",
+                                     "Quit")
+        # validate input
+        if inputIsValid(user_input, 'c') is not True:
+            badInputScreen()
+            go_to_screen = "Home"
+
 
     return go_to_screen
+
+
+"""
+Invalid input screen
+"""
+def badInputScreen():
+    addNewLine(40)
+    clearScreen()
+    print("--------------------------------------------------------------------")
+    print("|                                                                   |\n"
+          "|\tInvalid input! Press any key to try again                       |\n"
+          "|                                                                   |\n"
+          "---------------------------------------------------------------------\n")
+    input()
 
 """
 This function accepts the users choice, and then the options of the current screen, in order. 

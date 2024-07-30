@@ -1,8 +1,9 @@
-from UsefulFunctions import clearScreen
+from UsefulFunctions import clearScreen, clearPlaylist
+
 
 def welcomeScreen():
     clearScreen()
-
+    clearPlaylist()  # clear playlist everytime app is run
     print("-------------------- WELCOME TO MUSIC GENERATOR --------------------")
     print("|                                                                   |\n"
           "|\tThis app helps you discover new music in an easy way!           |\n"
@@ -21,4 +22,3 @@ def welcomeScreen():
           "|                                                                   |\n"
           "---------------------------------------------------------------------\n")
     input()
-
