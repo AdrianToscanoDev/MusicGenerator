@@ -1,20 +1,35 @@
 from UsefulFunctions import addNewLine, clearScreen
 
 
+def confirmationScreen():
+    addNewLine(40)
+    clearScreen()
+    print("--------------------------- Please confirm your selection --------------------------")
+    print("|                                                                                   |\n"
+          "|\tAre you sure you would like to fill the playlist?                           |\n"
+          "|\t                                                                            |\n"
+          "|\tYou will be unable to add songs,                                            |\n"
+          "|\tand you will need to restart the app to add more                            |\n"
+          "|\t                                                                            |\n"
+          "|\ta) Yes, fill the playlist                                                   |\n"
+          "|\tb) No, don't fill the playlist                                              |\n"
+          "|                                                                                   |\n"
+          "-----------------------------------------------------------------------------------\n")
+
 def quickFillPlaylistScreen():
     addNewLine(40)
     clearScreen()
     print("------------------------------- Quick Fill Playlist -------------------------------")
-    print("|                                                                                  |\n"
-          "|\tYour playlist has been filled! You will be unable to                            |\n"
-          "|\tadd additional songs.                                                           |\n"
-          "|\t                                                                                |\n"
-          "|\tIf you would like to add more songs, select Quit                                |\n"
-          "|\tand restart the app!:)                                                          |\n"
-          "|\t                                                                                |\n"
-          "|\ta) Home                                                                         |\n"
-          "|\tq) Quit                                                                         |\n"
-          "|                                                                                  |\n"
+    print("|                                                                                   |\n"
+          "|\tYour playlist has been filled! You will be unable to                        |\n"
+          "|\tadd additional songs.                                                       |\n"
+          "|\t                                                                            |\n"
+          "|\tIf you would like to add more songs, select Quit                            |\n"
+          "|\tand restart the app!:)                                                      |\n"
+          "|\t                                                                            |\n"
+          "|\ta) Home                                                                     |\n"
+          "|\tb) Quit                                                                     |\n"
+          "|                                                                                   |\n"
           "-----------------------------------------------------------------------------------\n")
 
 def quickFill(totalSongsGenerated):

@@ -56,15 +56,18 @@ def getInputFrom(screen):
     go_to_screen = "error"
 
     user_input = input("Enter choice here: \n")
+    if screen == "Welcome":
+        go_to_screen = "Home"
 
-    if screen == "HomeScreen":
+    elif screen == "HomeScreen":
         go_to_screen = getChoiceFrom(user_input,
                                      "View Playlist",
                                      "Add Songs",
                                      "Quick Fill Playlist",
+                                     "App Info",
                                      "Quit")
         # validate input
-        if inputIsValid(user_input, 'd') is not True:
+        if inputIsValid(user_input, 'e') is not True:
             badInputScreen()
             go_to_screen = "Home"
 
@@ -99,6 +102,15 @@ def getInputFrom(screen):
             badInputScreen()
             go_to_screen = "Home"
 
+    elif screen == "ConfirmationScreen":
+        go_to_screen = getChoiceFrom(user_input,
+                                     "yes",
+                                     "no")
+        # validate input
+        if inputIsValid(user_input, 'b') is not True:
+            badInputScreen()
+            go_to_screen = "Home"
+
     elif screen == "AddSongsSuccess":
         go_to_screen = getChoiceFrom(user_input,
                                      "Home",
@@ -111,16 +123,46 @@ def getInputFrom(screen):
 
     elif screen == "PlaylistFullMessage":
         go_to_screen = getChoiceFrom(user_input,
-                                     "Home",
                                      "View Playlist",
+                                     "Home",
                                      "Quit")
         # validate input
         if inputIsValid(user_input, 'c') is not True:
             badInputScreen()
             go_to_screen = "Home"
 
+    elif screen == "AppInfo":
+        go_to_screen = getChoiceFrom(user_input,
+                                     "Home",
+                                     "Quit")
+        # validate input
+        if inputIsValid(user_input, 'b') is not True:
+            badInputScreen()
+            go_to_screen = "Home"
+
 
     return go_to_screen
+
+
+
+"""
+This function accepts the users choice, and then the options of the current screen, in order. 
+It returns the name of the option that the user chose.
+*note* if the function returns none, this implies an error
+(none means this option was not an available option to the user)
+"""
+def getChoiceFrom(userChoice, optionA = "none", optionB = "none", optionC = "none", optionD = "none", optionE = "none"):
+
+    if userChoice == 'a':
+        return optionA
+    elif userChoice == 'b':
+        return optionB
+    elif userChoice == 'c':
+        return optionC
+    elif userChoice == 'd':
+        return optionD
+    elif userChoice == 'e':
+        return optionE
 
 
 """
@@ -135,22 +177,3 @@ def badInputScreen():
           "|                                                                   |\n"
           "---------------------------------------------------------------------\n")
     input()
-
-"""
-This function accepts the users choice, and then the options of the current screen, in order. 
-It returns the name of the option that the user chose.
-*note* if the function returns none, this implies an error
-(none means this option was not an available option to the user)
-"""
-def getChoiceFrom(userChoice, optionA = "none", optionB = "none", optionC = "none", optionD = "none", optionE = "none"):
-
-    if userChoice == 'q':
-        return "Quit"
-    elif userChoice == 'a':
-        return optionA
-    elif userChoice == 'b':
-        return optionB
-    elif userChoice == 'c':
-        return optionC
-    elif userChoice == 'd':
-        return optionD

@@ -3,8 +3,9 @@ from Home import homeScreen
 from Welcome import welcomeScreen
 from ViewPlaylist import viewPlaylistScreen
 from AddSongs import addSongsScreen, add5, add10, addSongsSuccess, printFullMessage, printMaxedOutMessage
-from QuickFillPlaylist import quickFillPlaylistScreen, quickFill
+from QuickFillPlaylist import quickFillPlaylistScreen, quickFill, confirmationScreen
 from Quit import quitScreen, errorScreen
+from AppInfo import appInfoScreen
 
 def main():
 
@@ -21,7 +22,11 @@ def main():
     # main program loop
     while user_choice != "Quit":
 
-        if user_choice == "Home":
+        if user_choice == "WelcomeScreen":
+            welcomeScreen()
+            user_choice = getInputFrom("Welcome")
+
+        elif user_choice == "Home":
             homeScreen()
             user_choice = getInputFrom("HomeScreen")
 
@@ -57,10 +62,23 @@ def main():
                 user_choice = getInputFrom("PlaylistFullMessage")
 
         elif user_choice == "Quick Fill Playlist":
-            quickFill(totalSongsGenerated)
-            quickFillPlaylistScreen()
-            totalSongsGenerated = 50
-            user_choice = getInputFrom("QuickFillPlaylistScreen")
+            # display a confirmation screen
+            confirmationScreen()
+            user_choice = getInputFrom("ConfirmationScreen")
+
+            # if user chose yes : run quickfill code
+            if user_choice == "yes":
+                # otherwise, return to home
+                quickFill(totalSongsGenerated)
+                quickFillPlaylistScreen()
+                totalSongsGenerated = 50
+                user_choice = getInputFrom("QuickFillPlaylistScreen")
+            else:
+                user_choice = "Home"
+
+        elif user_choice == "App Info":
+            appInfoScreen()
+            user_choice = getInputFrom("AppInfo")
 
         else:
             errorScreen()

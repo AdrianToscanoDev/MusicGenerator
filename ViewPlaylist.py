@@ -1,7 +1,8 @@
-from UsefulFunctions import addNewLine
+from UsefulFunctions import addNewLine, clearScreen
 
 def viewPlaylistScreen():
     addNewLine(40)
+    clearScreen()
     print("------------------------------- Your Playlist -------------------------------\n")
 
     # display playlist
