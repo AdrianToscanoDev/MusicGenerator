@@ -9,7 +9,8 @@ def homeScreen():
           "|\ta) View Playlist                                            |\n"
           "|\tb) Add Songs                                                |\n"
           "|\tc) Quick Fill Playlist                                      |\n"
-          "|\td) App Info                                                 |\n"
-          "|\te) Quit Program                                             |\n"
+          "|\td) Sort Playlist by song name                               |\n"
+          "|\te) App Info                                                 |\n"
+          "|\tf) Quit Program                                             |\n"
           "|                                                                   |\n"
           "---------------------------------------------------------------------\n")

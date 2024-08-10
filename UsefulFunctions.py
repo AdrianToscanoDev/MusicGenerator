@@ -64,10 +64,11 @@ def getInputFrom(screen):
                                      "View Playlist",
                                      "Add Songs",
                                      "Quick Fill Playlist",
+                                     "Sort",
                                      "App Info",
                                      "Quit")
         # validate input
-        if inputIsValid(user_input, 'e') is not True:
+        if inputIsValid(user_input, 'f') is not True:
             badInputScreen()
             go_to_screen = "Home"
 
@@ -131,6 +132,12 @@ def getInputFrom(screen):
             badInputScreen()
             go_to_screen = "Home"
 
+    elif screen == "sort_failed_addMore":
+        go_to_screen = getChoiceFrom(user_input,
+                                     "Home",
+                                     "Add Songs",
+                                     "Quit")
+
     elif screen == "AppInfo":
         go_to_screen = getChoiceFrom(user_input,
                                      "Home",
@@ -151,7 +158,7 @@ It returns the name of the option that the user chose.
 *note* if the function returns none, this implies an error
 (none means this option was not an available option to the user)
 """
-def getChoiceFrom(userChoice, optionA = "none", optionB = "none", optionC = "none", optionD = "none", optionE = "none"):
+def getChoiceFrom(userChoice, optionA = "none", optionB = "none", optionC = "none", optionD = "none", optionE = "none", optionF = "none"):
 
     if userChoice == 'a':
         return optionA
@@ -163,7 +170,8 @@ def getChoiceFrom(userChoice, optionA = "none", optionB = "none", optionC = "non
         return optionD
     elif userChoice == 'e':
         return optionE
-
+    elif userChoice == 'f':
+        return optionF
 
 """
 Invalid input screen

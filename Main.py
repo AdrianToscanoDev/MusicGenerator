@@ -1,10 +1,12 @@
 from UsefulFunctions import getInputFrom
 from Home import homeScreen
 from Welcome import welcomeScreen
-from ViewPlaylist import viewPlaylistScreen
+from GetPlaylist import viewPlaylistScreen
 from AddSongs import addSongsScreen, add5, add10, addSongsSuccess, printFullMessage, printMaxedOutMessage
 from QuickFillPlaylist import quickFillPlaylistScreen, quickFill, confirmationScreen
 from Quit import quitScreen, errorScreen
+from SortPlaylist import (sortPlaylistScreen_success, sortPlaylistScreen_failed_addMore,
+                          sortPlaylistScreen_failed_error, sortPlaylist)
 from AppInfo import appInfoScreen
 
 def main():
@@ -75,6 +77,18 @@ def main():
                 user_choice = getInputFrom("QuickFillPlaylistScreen")
             else:
                 user_choice = "Home"
+
+        elif user_choice == "Sort":
+            if totalSongsGenerated < 2:
+                sortPlaylistScreen_failed_addMore()
+                user_choice = getInputFrom("sort_failed_addMore")
+            elif totalSongsGenerated >= 2:
+                sortPlaylist()
+                sortPlaylistScreen_success()
+                user_choice = getInputFrom("sort_success")
+            else:
+                sortPlaylistScreen_failed_error()
+                user_choice = getInputFrom("sort_failed")
 
         elif user_choice == "App Info":
             appInfoScreen()
