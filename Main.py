@@ -1,7 +1,7 @@
 from UsefulFunctions import getInputFrom
 from Home import homeScreen
 from Welcome import welcomeScreen
-from GetPlaylist import viewPlaylistScreen
+from ViewPlaylist import viewPlaylistScreen
 from AddSongs import addSongsScreen, add5, add10, addSongsSuccess, printFullMessage, printMaxedOutMessage
 from QuickFillPlaylist import quickFillPlaylistScreen, quickFill, confirmationScreen
 from Quit import quitScreen, errorScreen
